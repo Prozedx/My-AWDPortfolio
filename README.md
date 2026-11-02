@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Desiree Villaruz Portfolio
 
 This project converts the original portfolio into a Laravel 12 application using
@@ -102,3 +103,6 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+# My-AWDPortfolio
+>>>>>>> 370600de6c8aac1f2f31077e020268b5a498244c
