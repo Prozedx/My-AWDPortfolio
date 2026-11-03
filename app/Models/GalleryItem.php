@@ -15,6 +15,7 @@ class GalleryItem extends Model
         'image_path',
         'category',
         'date_taken',
+        'location',
     ];
 
     protected function casts(): array

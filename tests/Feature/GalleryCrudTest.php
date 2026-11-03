@@ -37,6 +37,7 @@ class GalleryCrudTest extends TestCase
         $item = GalleryItem::firstOrFail();
 
         $this->assertSame('First Gallery Photo', $item->title);
+        $this->assertSame('Paris, France', $item->location);
         $this->assertStringStartsWith('gallery/', $item->image_path);
         Storage::disk('public')->assertExists($item->image_path);
 
@@ -53,6 +54,7 @@ class GalleryCrudTest extends TestCase
                 ->where('galleryItems.0.title', 'First Gallery Photo')
                 ->where('galleryItems.0.category', 'Travel')
                 ->where('galleryItems.0.date_taken', '2025-03-15')
+                ->where('galleryItems.0.location', 'Paris, France')
             );
     }
 
@@ -69,6 +71,7 @@ class GalleryCrudTest extends TestCase
             'image_path' => 'gallery/existing.png',
             'category' => 'Travel',
             'date_taken' => '2025-03-15',
+            'location' => 'Paris, France',
         ]);
 
         $this->get(route('gallery.edit', $item))
@@ -98,6 +101,7 @@ class GalleryCrudTest extends TestCase
                 'image',
                 'category',
                 'date_taken',
+                'location',
             ])
             ->assertSessionHasErrors([
                 'title' => 'Please enter a title for this gallery item.',
@@ -145,12 +149,14 @@ class GalleryCrudTest extends TestCase
             ),
             'category' => 'Projects',
             'date_taken' => '2025-04-20',
+            'location' => 'Home studio',
         ])->assertRedirect(route('gallery.index'))
             ->assertSessionHas('success', 'Gallery item updated.');
 
         $item->refresh();
         $this->assertSame('Updated Photo', $item->title);
         $this->assertSame('2025-04-20', $item->date_taken->format('Y-m-d'));
+        $this->assertSame('Home studio', $item->location);
         $this->assertNotSame($oldImagePath, $item->image_path);
         Storage::disk('public')->assertMissing($oldImagePath);
         Storage::disk('public')->assertExists($item->image_path);
@@ -160,6 +166,7 @@ class GalleryCrudTest extends TestCase
             'caption' => 'Keeping its own title is valid.',
             'category' => 'Projects',
             'date_taken' => '2025-04-20',
+            'location' => 'Home studio',
         ])->assertRedirect(route('gallery.index'))
             ->assertSessionHas('success', 'Gallery item updated.');
 
@@ -182,6 +189,7 @@ class GalleryCrudTest extends TestCase
             ),
             'category' => 'Travel',
             'date_taken' => '2025-03-15',
+            'location' => 'Paris, France',
         ];
     }
 }

@@ -91,6 +91,11 @@ export default function GallerySection({ galleryItems }) {
                                     <p className="mt-2 text-base leading-relaxed text-gray-700">
                                         {item.caption}
                                     </p>
+                                    {item.location && (
+                                        <p className="mt-3 text-sm text-gray-600">
+                                            Location: {item.location}
+                                        </p>
+                                    )}
                                 </div>
                             </Card>
                         ))}

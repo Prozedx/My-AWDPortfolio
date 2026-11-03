@@ -38,6 +38,7 @@ class GalleryItemRequest extends FormRequest
             ],
             'category' => ['required', 'string', 'max:100'],
             'date_taken' => ['required', 'date_format:Y-m-d'],
+            'location' => ['required', 'string', 'max:100'],
         ];
     }
 
@@ -54,6 +55,7 @@ class GalleryItemRequest extends FormRequest
             'image.mimes' => 'Choose a JPG, PNG, or WebP image.',
             'image.max' => 'The image must be 5 MB or smaller.',
             'date_taken.date_format' => 'Enter the date in a valid YYYY-MM-DD format.',
+            'location.required' => 'Please enter a location for this gallery item.',
         ];
     }
 }

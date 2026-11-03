@@ -97,6 +97,11 @@ export default function Index({ galleryItems }) {
                                         <p className="mt-3 whitespace-pre-line text-gray-700">
                                             {item.caption}
                                         </p>
+                                        {item.location && (
+                                            <p className="mt-2 text-sm text-gray-600">
+                                                Location: {item.location}
+                                            </p>
+                                        )}
                                     </div>
                                 </article>
                             ))}

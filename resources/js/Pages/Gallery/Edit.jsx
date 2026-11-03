@@ -9,6 +9,7 @@ export default function Edit({ galleryItem }) {
         image: null,
         category: galleryItem.category,
         date_taken: galleryItem.date_taken,
+        location: galleryItem.location,
     });
 
     function submitForm(event) {

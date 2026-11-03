@@ -68,6 +68,22 @@ export default function GalleryForm({ form, galleryItem, onSubmit }) {
             </div>
 
             <div>
+                <InputLabel htmlFor="location" value="Location" />
+                <TextInput
+                    id="location"
+                    className="mt-1 block w-full"
+                    value={form.data.location}
+                    onChange={(event) =>
+                        form.setData('location', event.target.value)
+                    }
+                    maxLength={100}
+                    required
+                />
+                <InputError className="mt-2" message={form.errors.location} />
+            </div>
+
+
+            <div>
                 <InputLabel htmlFor="image" value="Image" />
                 {galleryItem && (
                     <img

@@ -9,6 +9,7 @@ export default function Create() {
         image: null,
         category: '',
         date_taken: '',
+        location: '',
     });
 
     return (
