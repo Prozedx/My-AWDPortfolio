@@ -80,7 +80,6 @@ export default function GalleryForm({ form, galleryItem, onSubmit }) {
                     id="image"
                     className="mt-1 block w-full text-sm text-gray-700 file:mr-4 file:rounded-md file:border-0 file:bg-[#c9dafa] file:px-4 file:py-2 file:font-semibold"
                     type="file"
-                    accept="image/jpeg,image/png,image/webp"
                     onChange={(event) =>
                         form.setData('image', event.target.files[0] ?? null)
                     }
