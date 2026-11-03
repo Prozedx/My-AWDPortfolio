@@ -13,11 +13,10 @@ export default function Edit({ galleryItem }) {
 
     function submitForm(event) {
         event.preventDefault();
-        form
-            .transform((data) => ({ ...data, _method: 'put' }))
-            .post(route('gallery.update', galleryItem.id), {
-                forceFormData: true,
-            });
+        form.transform((data) => ({ ...data, _method: 'put' }));
+        form.post(route('gallery.update', galleryItem.id), {
+            forceFormData: true,
+        });
     }
 
     return (
